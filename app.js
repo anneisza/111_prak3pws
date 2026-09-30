@@ -34,3 +34,7 @@ app.get("/api/lokasi", async (requestAnimationFrame, res) =>{
         });
     }
 });
+
+app.listen(PORT, () =>{
+    console.log(`Server berjalan di http://localhost:${PORT}`);
+});
