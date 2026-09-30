@@ -6,7 +6,7 @@ const app = express();
 const PORT = 3000;
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/api/lokasi", async (requestAnimationFrame, res) =>{
+app.get("/api/lokasi", async (req, res) =>{
     const kota = "Jakarta";
 
     const apiKey = "TmW3n2IbOKaZxkghOoYB";
@@ -19,12 +19,12 @@ app.get("/api/lokasi", async (requestAnimationFrame, res) =>{
 
         const data = response.data;
 
-        const lokasi = data.fetures[0].matching_text;
+        const lokasi = data.features[0].matching_text;
         const koordinat = data.features[0].geometry.coordinates;
 
         res.json({
             kota: lokasi,
-            koordinat: korrdinat
+            koordinat: koordinat
         });
     } catch(error){
         console.error(error.message);
